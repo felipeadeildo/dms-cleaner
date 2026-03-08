@@ -4,6 +4,7 @@
     "name": "Dank Cleaner",
     "description": "One-click safe cleaner with junk scan and large file discovery.",
     "version": "1.0.0",
+    "license": "MIT",
     "author": "noxius",
     "icon": "cleaning_services",
     "type": "widget",
