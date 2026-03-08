@@ -20,3 +20,8 @@ Default cleanup targets:
 - Optional old `/tmp` files owned by current user only
 
 The plugin does not clean system package caches or privileged paths.
+
+## Development
+
+- Main branch contains stable plugin code.
+- Use short-lived feature branches and open PRs into `main`.
