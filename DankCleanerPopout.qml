@@ -127,14 +127,14 @@ Column {
                     Rectangle {
                         required property var modelData
                         Layout.fillWidth: true
-                        height: 84
+                        height: 56
                         radius: Theme.cornerRadius
                         color: Theme.surfaceContainerHigh
 
                         Column {
                             anchors.fill: parent
-                            anchors.margins: Theme.spacingM
-                            spacing: Theme.spacingXS
+                            anchors.margins: Theme.spacingS
+                            spacing: 1
 
                             StyledText {
                                 text: modelData.label
@@ -144,7 +144,7 @@ Column {
 
                             StyledText {
                                 text: CleanerService.formatBytes(modelData.value)
-                                font.pixelSize: Theme.fontSizeLarge
+                                font.pixelSize: Theme.fontSizeMedium
                                 font.weight: Font.Bold
                                 color: modelData.enabled ? Theme.primary : Theme.surfaceVariantText
                             }
