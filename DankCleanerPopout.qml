@@ -50,7 +50,9 @@ Column {
         height: parent.height - tabBar.height - Theme.spacingS * 2
 
         Column {
-            anchors.fill: parent
+            anchors.top: parent.top
+            anchors.left: parent.left
+            anchors.right: parent.right
             anchors.margins: Theme.spacingS
             spacing: Theme.spacingS
 
@@ -62,8 +64,8 @@ Column {
 
                 Row {
                     anchors.fill: parent
-                    anchors.margins: Theme.spacingM
-                    spacing: Theme.spacingM
+                    anchors.margins: Theme.spacingS
+                    spacing: Theme.spacingS
 
                     Column {
                         width: parent.width - rescanButton.width - Theme.spacingS
@@ -141,22 +143,39 @@ Column {
                             anchors.margins: Theme.spacingS
                             spacing: 1
 
-                            StyledText {
-                                text: modelData.label
-                                font.pixelSize: Theme.fontSizeSmall
-                                color: Theme.surfaceVariantText
+                            Row {
+                                width: parent.width
+                                spacing: Theme.spacingXS
+
+                                StyledText {
+                                    text: modelData.label
+                                    font.pixelSize: Theme.fontSizeSmall
+                                    color: Theme.surfaceVariantText
+                                    anchors.verticalCenter: parent.verticalCenter
+                                }
+
+                                Rectangle {
+                                    anchors.verticalCenter: parent.verticalCenter
+                                    width: badgeText.implicitWidth + 6
+                                    height: badgeText.implicitHeight + 2
+                                    radius: 3
+                                    color: modelData.enabled ? Theme.primary : Theme.surfaceVariant
+
+                                    StyledText {
+                                        id: badgeText
+                                        anchors.centerIn: parent
+                                        text: modelData.enabled ? "ON" : "OFF"
+                                        font.pixelSize: Theme.fontSizeXSmall
+                                        font.weight: Font.Medium
+                                        color: modelData.enabled ? Theme.surfaceContainerHigh : Theme.surfaceVariantText
+                                    }
+                                }
                             }
 
                             StyledText {
                                 text: CleanerService.formatBytes(modelData.value)
                                 font.pixelSize: Theme.fontSizeMedium
                                 font.weight: Font.Bold
-                                color: modelData.enabled ? Theme.primary : Theme.surfaceVariantText
-                            }
-
-                            StyledText {
-                                text: modelData.enabled ? "Enabled" : "Disabled"
-                                font.pixelSize: Theme.fontSizeSmall
                                 color: modelData.enabled ? Theme.primary : Theme.surfaceVariantText
                             }
                         }
