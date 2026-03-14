@@ -46,8 +46,8 @@ Column {
 
         Column {
             anchors.fill: parent
-            anchors.margins: Theme.spacingM
-            spacing: Theme.spacingM
+            anchors.margins: Theme.spacingS
+            spacing: Theme.spacingS
 
             Rectangle {
                 width: parent.width
@@ -97,8 +97,8 @@ Column {
             GridLayout {
                 width: parent.width
                 columns: 2
-                columnSpacing: Theme.spacingM
-                rowSpacing: Theme.spacingM
+                columnSpacing: Theme.spacingS
+                rowSpacing: Theme.spacingS
 
                 Repeater {
                     model: [
