@@ -176,7 +176,7 @@ Column {
 
         Column {
             anchors.fill: parent
-            anchors.margins: Theme.spacingM
+            anchors.margins: Theme.spacingS
             spacing: Theme.spacingS
 
             Row {
@@ -213,7 +213,7 @@ Column {
                 Column {
                     id: filesColumn
                     width: parent.width
-                    spacing: 4
+                    spacing: 2
 
                     Repeater {
                         model: CleanerService.largeFiles
@@ -222,15 +222,15 @@ Column {
                             required property var modelData
                             required property int index
                             width: filesColumn.width
-                            height: 62
+                            height: 44
                             radius: 6
                             color: index % 2 === 0 ? "transparent" : Qt.rgba(Theme.surfaceVariant.r, Theme.surfaceVariant.g, Theme.surfaceVariant.b, 0.25)
 
                             Row {
                                 anchors.fill: parent
-                                anchors.leftMargin: Theme.spacingS
-                                anchors.rightMargin: Theme.spacingS
-                                spacing: Theme.spacingM
+                                anchors.leftMargin: 4
+                                anchors.rightMargin: 4
+                                spacing: Theme.spacingS
 
                                 Column {
                                     width: Math.max(
@@ -238,7 +238,7 @@ Column {
                                         parent.width
                                         - sizeText.width
                                         - deleteButton.width
-                                        - Theme.spacingM * 2
+                                        - Theme.spacingS * 2
                                     )
                                     anchors.verticalCenter: parent.verticalCenter
                                     spacing: 2
