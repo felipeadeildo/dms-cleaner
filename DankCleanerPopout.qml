@@ -5,7 +5,7 @@ import qs.Widgets
 
 Column {
     id: root
-    spacing: Theme.spacingM
+    spacing: Theme.spacingS
 
     function maxDiskRowSize() {
         var rows = CleanerService.diskTopDirs || [];
@@ -28,7 +28,7 @@ Column {
 
     DankTabBar {
         id: tabBar
-        width: parent.width - Theme.spacingM * 2
+        width: parent.width - Theme.spacingS * 2
         anchors.horizontalCenter: parent.horizontalCenter
         currentIndex: 0
         model: [
@@ -42,7 +42,7 @@ Column {
     Item {
         visible: tabBar.currentIndex === 0
         width: parent.width
-        height: parent.height - tabBar.height - Theme.spacingM * 2
+        height: parent.height - tabBar.height - Theme.spacingS * 2
 
         Column {
             anchors.fill: parent
@@ -185,7 +185,7 @@ Column {
     Item {
         visible: tabBar.currentIndex === 1
         width: parent.width
-        height: parent.height - tabBar.height - Theme.spacingM * 2
+        height: parent.height - tabBar.height - Theme.spacingS * 2
 
         Column {
             anchors.fill: parent
@@ -316,7 +316,7 @@ Column {
     Item {
         visible: tabBar.currentIndex === 2
         width: parent.width
-        height: parent.height - tabBar.height - Theme.spacingM * 2
+        height: parent.height - tabBar.height - Theme.spacingS * 2
 
         Column {
             anchors.fill: parent
