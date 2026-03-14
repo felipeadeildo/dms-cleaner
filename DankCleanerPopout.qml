@@ -307,7 +307,7 @@ Column {
 
         Column {
             anchors.fill: parent
-            anchors.margins: Theme.spacingM
+            anchors.margins: Theme.spacingS
             spacing: Theme.spacingS
 
             Row {
@@ -342,7 +342,7 @@ Column {
 
                     Column {
                         anchors.fill: parent
-                        anchors.margins: Theme.spacingM
+                        anchors.margins: Theme.spacingS
                         spacing: Theme.spacingXS
 
                         StyledText {
@@ -428,7 +428,7 @@ Column {
 
                     Column {
                         anchors.fill: parent
-                        anchors.margins: Theme.spacingM
+                        anchors.margins: Theme.spacingS
                         spacing: Theme.spacingS
 
                         StyledText {
@@ -439,7 +439,7 @@ Column {
 
                         Canvas {
                             id: pieCanvas
-                            width: Math.min(parent.width, 180)
+                            width: Math.min(parent.width, 140)
                             height: width
                             anchors.horizontalCenter: parent.horizontalCenter
 
@@ -484,7 +484,7 @@ Column {
 
                         Flickable {
                             width: parent.width
-                            height: parent.height - pieCanvas.height - 56
+                            height: parent.height - pieCanvas.height - 44
                             contentHeight: legendColumn.implicitHeight
                             clip: true
 
