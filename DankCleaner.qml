@@ -6,8 +6,8 @@ import qs.Modules.Plugins
 PluginComponent {
     id: root
 
-    popoutWidth: 860
-    popoutHeight: 580
+    popoutWidth: 680
+    popoutHeight: 420
 
     onPluginDataChanged: {
         CleanerService.cleanupCache = pluginData.cleanupCache !== false;
