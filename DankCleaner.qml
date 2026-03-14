@@ -6,19 +6,21 @@ import qs.Modules.Plugins
 PluginComponent {
     id: root
 
+    layerNamespacePlugin: "dank-cleaner"
+
     popoutWidth: 680
     popoutHeight: 420
 
     onPluginDataChanged: {
-        CleanerService.cleanupCache = pluginData.cleanupCache !== false;
-        CleanerService.cleanupTrash = pluginData.cleanupTrash !== false;
-        CleanerService.cleanupBrowserCache = pluginData.cleanupBrowserCache !== false;
-        CleanerService.cleanupTmp = pluginData.cleanupTmp === true;
+        CleanerService.cleanupCache = pluginData.cleanupCache ?? true;
+        CleanerService.cleanupTrash = pluginData.cleanupTrash ?? true;
+        CleanerService.cleanupBrowserCache = pluginData.cleanupBrowserCache ?? true;
+        CleanerService.cleanupTmp = pluginData.cleanupTmp ?? false;
         CleanerService.tmpAgeDays = parseInt(pluginData.tmpAgeDays) || 3;
         CleanerService.largeFileThresholdMb = parseInt(pluginData.largeFileThresholdMb) || 100;
-        CleanerService.largeFilePaths = pluginData.largeFilePaths || "~/Downloads\n~/Videos\n~/Documents";
-        CleanerService.diskAnalyzerPaths = pluginData.diskAnalyzerPaths || CleanerService.largeFilePaths;
-        CleanerService.excludePatterns = pluginData.excludePatterns || "";
+        CleanerService.largeFilePaths = pluginData.largeFilePaths ?? "~/Downloads\n~/Videos\n~/Documents";
+        CleanerService.diskAnalyzerPaths = pluginData.diskAnalyzerPaths ?? CleanerService.largeFilePaths;
+        CleanerService.excludePatterns = pluginData.excludePatterns ?? "";
         CleanerService.refreshAll();
     }
 
