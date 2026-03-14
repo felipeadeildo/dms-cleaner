@@ -9,20 +9,14 @@ Column {
 
     function maxDiskRowSize() {
         var rows = CleanerService.diskTopDirs || [];
-        if (rows.length === 0) return 1;
+        if (rows.length === 0)
+            return 1;
         var maxV = rows[0].size || 1;
         return Math.max(1, maxV);
     }
 
     function pieColor(index) {
-        var palette = [
-            Theme.primary,
-            "#4CAF50",
-            "#FF9800",
-            "#03A9F4",
-            "#AB47BC",
-            "#EF5350"
-        ];
+        var palette = [Theme.primary, "#4CAF50", "#FF9800", "#03A9F4", "#AB47BC", "#EF5350"];
         return palette[index % palette.length];
     }
 
@@ -32,11 +26,22 @@ Column {
         anchors.horizontalCenter: parent.horizontalCenter
         currentIndex: 0
         model: [
-            { text: "Cleanup", icon: "cleaning_services" },
-            { text: "Large Files", icon: "folder_open" },
-            { text: "Disk Analyzer", icon: "pie_chart" }
+            {
+                text: "Cleanup",
+                icon: "cleaning_services"
+            },
+            {
+                text: "Large Files",
+                icon: "folder_open"
+            },
+            {
+                text: "Disk Analyzer",
+                icon: "pie_chart"
+            }
         ]
-        onTabClicked: function(index) { tabBar.currentIndex = index; }
+        onTabClicked: function (index) {
+            tabBar.currentIndex = index;
+        }
     }
 
     Item {
@@ -233,13 +238,7 @@ Column {
                                 spacing: Theme.spacingS
 
                                 Column {
-                                    width: Math.max(
-                                        120,
-                                        parent.width
-                                        - sizeText.width
-                                        - deleteButton.width
-                                        - Theme.spacingS * 2
-                                    )
+                                    width: Math.max(120, parent.width - sizeText.width - deleteButton.width - Theme.spacingS * 2)
                                     anchors.verticalCenter: parent.verticalCenter
                                     spacing: 2
 
@@ -385,10 +384,7 @@ Column {
                                             color: Theme.surfaceVariant
 
                                             Rectangle {
-                                                width: Math.max(
-                                                    2,
-                                                    parent.width * (modelData.size / root.maxDiskRowSize())
-                                                )
+                                                width: Math.max(2, parent.width * (modelData.size / root.maxDiskRowSize()))
                                                 height: parent.height
                                                 radius: parent.radius
                                                 color: Theme.primary
@@ -448,8 +444,10 @@ Column {
                                 ctx.clearRect(0, 0, width, height);
                                 var buckets = CleanerService.diskCategoryBuckets || [];
                                 var total = 0;
-                                for (var i = 0; i < buckets.length; i++) total += buckets[i].size;
-                                if (total <= 0) return;
+                                for (var i = 0; i < buckets.length; i++)
+                                    total += buckets[i].size;
+                                if (total <= 0)
+                                    return;
 
                                 var cx = width / 2;
                                 var cy = height / 2;
@@ -525,5 +523,4 @@ Column {
             }
         }
     }
-
 }
