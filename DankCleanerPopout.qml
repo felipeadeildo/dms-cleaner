@@ -61,7 +61,7 @@ Column {
                     spacing: Theme.spacingM
 
                     Column {
-                        width: parent.width - cleanButton.width - Theme.spacingM
+                        width: parent.width - rescanButton.width - Theme.spacingS
                         anchors.verticalCenter: parent.verticalCenter
                         spacing: 4
 
@@ -84,12 +84,12 @@ Column {
                     }
 
                     DankButton {
-                        id: cleanButton
-                        text: CleanerService.running ? "Working..." : "Clean Now"
-                        iconName: "auto_fix_high"
+                        id: rescanButton
+                        text: "Rescan"
+                        iconName: "refresh"
                         enabled: !CleanerService.running
                         anchors.verticalCenter: parent.verticalCenter
-                        onClicked: CleanerService.cleanNow()
+                        onClicked: CleanerService.refreshAll()
                     }
                 }
             }
@@ -159,25 +159,12 @@ Column {
                 }
             }
 
-            Row {
+            DankButton {
+                text: CleanerService.running ? "Working..." : "Clean Now"
+                iconName: "auto_fix_high"
+                enabled: !CleanerService.running
                 width: parent.width
-                spacing: Theme.spacingS
-
-                DankButton {
-                    text: "Rescan"
-                    iconName: "refresh"
-                    enabled: !CleanerService.running
-                    onClicked: CleanerService.refreshAll()
-                }
-
-                StyledText {
-                    anchors.verticalCenter: parent.verticalCenter
-                    text: "Safe mode: only user-space cache/temp/trash paths are touched."
-                    font.pixelSize: Theme.fontSizeSmall
-                    color: Theme.surfaceVariantText
-                    width: parent.width - 140
-                    elide: Text.ElideRight
-                }
+                onClicked: CleanerService.cleanNow()
             }
         }
     }
